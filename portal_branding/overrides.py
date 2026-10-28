@@ -38,6 +38,8 @@ def update_website_context(context):
 			fragments.append(f"<style data-portal-branding>\n{css}\n</style>")
 
 		if fragments:
-			context.head_html = (context.get("head_html") or "") + "\n" + "\n".join(fragments)
+			# base.html renders {{ head_include or "" }} inside <head> on both
+			# v15 and v16 (frappe/templates/base.html, block head_include).
+			context.head_include = (context.get("head_include") or "") + "\n" + "\n".join(fragments)
 	except Exception:
 		frappe.log_error(title="Portal Branding: failed to inject branding CSS")
