@@ -1,0 +1,202 @@
+{
+ "actions": [],
+ "creation": "2026-10-28 09:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "enabled",
+  "logo_section",
+  "logo",
+  "apply_logo_to_navbar",
+  "logo_height",
+  "logo_column_break",
+  "favicon",
+  "colors_section",
+  "primary_color",
+  "link_color",
+  "colors_column_break",
+  "navbar_background",
+  "navbar_text_color",
+  "surfaces_section",
+  "page_background",
+  "surfaces_column_break",
+  "footer_background",
+  "footer_text_color",
+  "typography_section",
+  "google_font",
+  "typography_column_break",
+  "font_family",
+  "advanced_section",
+  "custom_css",
+  "generated_css"
+ ],
+ "fields": [
+  {
+   "default": "1",
+   "fieldname": "enabled",
+   "fieldtype": "Check",
+   "label": "Enabled"
+  },
+  {
+   "fieldname": "logo_section",
+   "fieldtype": "Section Break",
+   "label": "Logo & Favicon"
+  },
+  {
+   "fieldname": "logo",
+   "fieldtype": "Attach Image",
+   "label": "Logo",
+   "description": "Shown in the portal navbar and on the login page. SVG or PNG with transparency works best."
+  },
+  {
+   "default": "1",
+   "depends_on": "logo",
+   "fieldname": "apply_logo_to_navbar",
+   "fieldtype": "Check",
+   "label": "Apply Logo to Navbar",
+   "description": "Writes the logo into Website Settings (Brand HTML and App Logo) on save."
+  },
+  {
+   "default": "24",
+   "depends_on": "logo",
+   "fieldname": "logo_height",
+   "fieldtype": "Int",
+   "label": "Navbar Logo Height (px)"
+  },
+  {
+   "fieldname": "logo_column_break",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "favicon",
+   "fieldtype": "Attach Image",
+   "label": "Favicon",
+   "description": "Written into Website Settings on save."
+  },
+  {
+   "fieldname": "colors_section",
+   "fieldtype": "Section Break",
+   "label": "Colors"
+  },
+  {
+   "fieldname": "primary_color",
+   "fieldtype": "Color",
+   "label": "Primary Color",
+   "description": "Buttons, active sidebar items, focus rings."
+  },
+  {
+   "fieldname": "link_color",
+   "fieldtype": "Color",
+   "label": "Link Color",
+   "description": "Falls back to Primary Color when left empty."
+  },
+  {
+   "fieldname": "colors_column_break",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "navbar_background",
+   "fieldtype": "Color",
+   "label": "Navbar Background"
+  },
+  {
+   "fieldname": "navbar_text_color",
+   "fieldtype": "Color",
+   "label": "Navbar Text Color"
+  },
+  {
+   "fieldname": "surfaces_section",
+   "fieldtype": "Section Break",
+   "label": "Page & Footer"
+  },
+  {
+   "fieldname": "page_background",
+   "fieldtype": "Color",
+   "label": "Page Background"
+  },
+  {
+   "fieldname": "surfaces_column_break",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "footer_background",
+   "fieldtype": "Color",
+   "label": "Footer Background"
+  },
+  {
+   "fieldname": "footer_text_color",
+   "fieldtype": "Color",
+   "label": "Footer Text Color"
+  },
+  {
+   "fieldname": "typography_section",
+   "fieldtype": "Section Break",
+   "label": "Typography"
+  },
+  {
+   "fieldname": "google_font",
+   "fieldtype": "Data",
+   "label": "Google Font",
+   "description": "Font name as it appears on fonts.google.com, e.g. Inter or Source Serif 4. Loaded automatically on portal pages."
+  },
+  {
+   "fieldname": "typography_column_break",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "font_family",
+   "fieldtype": "Data",
+   "label": "Font Family (CSS)",
+   "description": "Optional CSS font stack. When a Google Font is set, this is used as the fallback stack."
+  },
+  {
+   "fieldname": "advanced_section",
+   "fieldtype": "Section Break",
+   "label": "Advanced",
+   "collapsible": 1
+  },
+  {
+   "fieldname": "custom_css",
+   "fieldtype": "Code",
+   "label": "Custom CSS",
+   "options": "CSS",
+   "description": "Appended after the generated rules. Use this for anything the fields above do not cover."
+  },
+  {
+   "fieldname": "generated_css",
+   "fieldtype": "Code",
+   "hidden": 1,
+   "label": "Generated CSS",
+   "options": "CSS",
+   "read_only": 1
+  }
+ ],
+ "index_web_pages_for_search": 0,
+ "issingle": 1,
+ "links": [],
+ "modified": "2026-10-28 09:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Portal Branding",
+ "name": "Portal Branding Settings",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "email": 1,
+   "print": 1,
+   "read": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "read": 1,
+   "role": "Website Manager",
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}
