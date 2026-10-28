@@ -3,9 +3,32 @@ from frappe.model.document import Document
 from frappe.utils import cint
 
 
+COLOR_FIELDS = (
+	"primary_color",
+	"link_color",
+	"navbar_background",
+	"navbar_text_color",
+	"page_background",
+	"footer_background",
+	"footer_text_color",
+)
+
+
 class PortalBrandingSettings(Document):
 	def validate(self):
+		self.validate_colors()
 		self.generated_css = self.build_css()
+
+	def validate_colors(self):
+		"""Only valid hex colors make it into the generated stylesheet."""
+		for fieldname in COLOR_FIELDS:
+			value = (self.get(fieldname) or "").strip()
+			if value and not parse_hex(value):
+				frappe.throw(
+					frappe._("{0} must be a hex color like #1a73e8").format(
+						frappe.bold(self.meta.get_label(fieldname))
+					)
+				)
 
 	def on_update(self):
 		self.sync_website_settings()
